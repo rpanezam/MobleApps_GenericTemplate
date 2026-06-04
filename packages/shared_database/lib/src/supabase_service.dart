@@ -22,7 +22,7 @@ class SupabaseService {
     Map<String, dynamic>? filter,
   }) async {
     try {
-      PostgrestFilterBuilder query = _client.from(table).select(columns);
+      var query = _client.from(table).select(columns);
       
       if (filter != null) {
         filter.forEach((key, value) {
