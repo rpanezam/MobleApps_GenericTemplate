@@ -28,6 +28,10 @@ obj/
 *.userosscache
 *.sln.docstates
 
+# Melos overrides and IDE
+pubspec_overrides.yaml
+*.iml
+
 # IDE and System Files
 .idea/
 .vscode/
