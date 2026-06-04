@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_database/shared_database.dart';
 import 'package:shared_ui/shared_ui.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  ConsumerState<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends ConsumerState<HomePage> {
   final _formKey = GlobalKey<FormState>();
   final _nameController = TextEditingController();
   final _cityController = TextEditingController();
@@ -28,8 +30,28 @@ class _HomePageState extends State<HomePage> {
         _isSubmitting = true;
       });
 
-      // Simulate a network request or database save operation
-      await Future.delayed(const Duration(milliseconds: 1500));
+      try {
+        final database = ref.read(supabaseServiceProvider);
+        await database.insert(
+          table: 'submissions',
+          data: {
+            'name': _nameController.text.trim(),
+            'city': _cityController.text.trim(),
+          },
+        );
+      } catch (e) {
+        if (!mounted) return;
+        setState(() {
+          _isSubmitting = false;
+        });
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Failed to save to database: $e'),
+            backgroundColor: Colors.redAccent,
+          ),
+        );
+        return;
+      }
 
       if (!mounted) return;
 
