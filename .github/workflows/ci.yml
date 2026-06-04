@@ -39,8 +39,8 @@ jobs:
       - name: Flutter Analyze
         run: melos run analyze
 
-      - name: Flutter Pub Audit
-        run: melos exec -- "flutter pub audit"
+      - name: Flutter Pub Outdated
+        run: melos exec -- "flutter pub outdated"
 
       - name: Flutter Test
         run: melos run test

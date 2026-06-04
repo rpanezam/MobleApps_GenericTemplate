@@ -72,7 +72,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                 topRight: Radius.circular(24),
               ),
               border: Border.all(
-                color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
+                color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.1),
                 width: 1,
               ),
             ),
@@ -84,7 +84,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                   width: 48,
                   height: 4,
                   decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.onSurface.withOpacity(0.2),
+                    color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(2),
                   ),
                 ),
@@ -92,7 +92,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                 Container(
                   width: 64,
                   height: 64,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     gradient: AppTheme.premiumGradient,
                     shape: BoxShape.circle,
                   ),
@@ -142,7 +142,7 @@ class _HomePageState extends ConsumerState<HomePage> {
         Text(
           label,
           style: TextStyle(
-            color: Theme.of(context).colorScheme.onSurface.withOpacity(0.6),
+            color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
             fontSize: 14,
           ),
         ),
@@ -207,7 +207,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(16),
                             borderSide: BorderSide(
-                              color: Theme.of(context).colorScheme.onSurface.withOpacity(0.12),
+                              color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.12),
                             ),
                           ),
                           focusedBorder: OutlineInputBorder(
@@ -240,7 +240,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(16),
                             borderSide: BorderSide(
-                              color: Theme.of(context).colorScheme.onSurface.withOpacity(0.12),
+                              color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.12),
                             ),
                           ),
                           focusedBorder: OutlineInputBorder(

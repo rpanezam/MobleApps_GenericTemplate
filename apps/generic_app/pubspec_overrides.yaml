@@ -1,0 +1,6 @@
+# melos_managed_dependency_overrides: shared_database,shared_ui
+dependency_overrides:
+  shared_database:
+    path: ..\\..\\packages\\shared_database
+  shared_ui:
+    path: ..\\..\\packages\\shared_ui

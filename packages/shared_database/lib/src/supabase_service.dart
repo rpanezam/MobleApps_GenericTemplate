@@ -55,7 +55,7 @@ class SupabaseService {
   Future<List<Map<String, dynamic>>> update({
     required String table,
     required Map<String, dynamic> data,
-    required Map<String, dynamic> match,
+    required Map<String, Object> match,
   }) async {
     try {
       final response = await _client.from(table).update(data).match(match).select();
@@ -68,7 +68,7 @@ class SupabaseService {
   /// Delete records from [table] matching the [match] criteria.
   Future<List<Map<String, dynamic>>> delete({
     required String table,
-    required Map<String, dynamic> match,
+    required Map<String, Object> match,
   }) async {
     try {
       final response = await _client.from(table).delete().match(match).select();
