@@ -37,7 +37,14 @@ jobs:
         run: melos bootstrap
 
       - name: Flutter Analyze
-        run: melos run analyze
+        run: melos run analyze > analyze_log.txt 2>&1
+
+      - name: Upload Analyze Logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: analyze-logs
+          path: analyze_log.txt
 
       - name: Flutter Pub Outdated
         run: melos exec -- "flutter pub outdated"
