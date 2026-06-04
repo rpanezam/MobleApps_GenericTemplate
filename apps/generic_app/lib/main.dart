@@ -10,6 +10,7 @@ void main() async {
   // Initialize the Supabase Client using the public credentials
   await Supabase.initialize(
     url: 'https://kmubhzdxgzvlqczdvywt.supabase.co',
+    // ignore: deprecated_member_use
     anonKey: 'sb_publishable_JTsV-H0VL-V07CFTJ0ijCw_Sd7L8zBa',
   );
 

@@ -300,10 +300,34 @@ app-factory/
 - **Primary Service:** Supabase PostgreSQL.
 - **Stored Data:** Users, History, Subscription Data, Settings, Analytics.
 
-### Ads Standard
-- **Primary Service:** AdMob.
-- **Free Plan:** Ads Enabled.
+### Ads Standard & Global Advertising System
+- **Primary Service:** AdMob (Google AdMob only).
+- **Free Plan:** Ads Enabled (Adaptive Banner Ad fixed at the top of every screen).
 - **Premium Plan:** Ads Removed.
+
+#### Advertising Requirements:
+1. **Ad Service & Format:** Use Google AdMob only. Use Banner Ads only. Do NOT use Interstitial, Rewarded, App Open, Native, Splash, or Video Ads.
+2. **Placement & Visibility:** Display a small Adaptive Banner Ad fixed at the top of every screen. The banner must remain visible across all pages and navigation flows.
+3. **Layout Integration:** All page content must automatically start below the banner. The ad must never overlap any UI element. If an ad fails to load, preserve layout spacing and prevent UI shifts.
+4. **Code Structure:** Create a single reusable `GlobalAdBanner` component. Store all AdMob IDs in one centralized configuration file (`AdConfig`). Never hardcode AdMob IDs inside individual screens.
+5. **Screen Integration:** All screens must consume the `GlobalAdBanner` component. Future screens must automatically use the same advertising system.
+6. **Scalability & Platforms:** Keep the implementation modular, scalable, reusable, and production-ready. Support Android, iOS, Web, and future platform expansion.
+7. **Centralized Configuration:** Any future changes to ad settings or AdMob IDs must be performed from one centralized location only (One ad component, one ad configuration, unlimited screens). Build once, reuse everywhere with maximum code reuse and minimum maintenance.
+8. **Compliance & UX:** Follow Google AdMob policies and best practices. Preserve performance and user experience at all times.
+
+#### Architecture:
+```
+App
+├── GlobalAdBanner
+├── AdConfig
+├── Home
+├── Dashboard
+├── Settings
+├── Profile
+└── Future Screens
+```
+*Rule: One ad component, one ad configuration, unlimited screens.*
+
 
 ### Payments Standard
 - **Primary Service:** Stripe.
