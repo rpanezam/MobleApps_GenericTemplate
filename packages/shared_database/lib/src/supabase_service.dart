@@ -22,7 +22,7 @@ class SupabaseService {
     Map<String, dynamic>? filter,
   }) async {
     try {
-      var query = _client.from(table).select(columns);
+      dynamic query = _client.from(table).select(columns);
       
       if (filter != null) {
         filter.forEach((key, value) {
