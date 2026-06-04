@@ -1,0 +1,41 @@
+# Environment variables and secrets
+.env
+.env.local
+.env.development
+.env.production
+.env.staging
+*.env
+
+# Flutter / Dart
+build/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+pubspec.lock
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# .NET (ASP.NET Core)
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# IDE and System Files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
